@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kare Reklam Ankara - Araç Giydirme & Tabela Uzmanı</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px #ffd700;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(#ffd700, rgb(255, 255, 255)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3c72" width="1200" height="600"/><text x="50%" y="50%" font-size="40" fill="white" text-anchor="middle" dy=".3em">Araç Giydirme & Tabela</text></svg>');
+            background-size: cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease;
+    color: #ffffff !important; /* Mavi renk */
+    text-shadow: 2px 2px 4px #1e3c72;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s both;
+    color: #1e3c72;
+}
+        .cta-button {
+    display: inline-block;
+    background: #ffd700;
+    color: #1e3c72;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    animation: fadeInUp 1s ease 0.4s both;
+    margin-right: 1rem;
+
+    margin-top: 30px; /* 👈 BUNU EKLE */
+}
+
+        .whatsapp-hero {
+            background: #25D366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-hero:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px #0000001a;
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #ffd700;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .about {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: #1e3c72;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            width: 50px;
+        }
+
+        .whatsapp-contact {
+            background: #25D366;
+            color: white;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            margin-top: 2rem;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-contact:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(37,211,102,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #ffffff;
+            z-index: 100;
+            animation: whatsapp-blink 2s infinite;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 4px 4px 10px #ffffff;
+        }
+
+        .whatsapp-float:active {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-float i {
+            margin-top: 16px;
+            display: block;
+        }
+
+        @keyframes whatsapp-blink {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #1e3c72;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float i {
+                margin-top: 14px;
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+   <header>
+    <nav>
+        <div class="logo">
+    <img src="https://i.imgur.com/6SMpItI.jpeg" alt="Kare Reklam Logo" 
+         style="
+            width: 60px;
+            height: 50px;
+            margin-right: 8px;
+            vertical-align: middle;
+            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+            transition: all 0.3s ease;
+        "
+         onmouseover="this.style.filter='drop-shadow(0 2px 6px rgba(0,0,0,0.5)) brightness(1.1)'; this.style.transform='scale(1.05)';"
+         onmouseout="this.style.filter='drop-shadow(0 1px 3px rgba(0,0,0,0.4))'; this.style.transform='scale(1)';">
+    
+    <strong style="
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+        color: #ffffff !important;
+        font-weight: 900;
+        letter-spacing: 1px;
+    ">Kare Reklam</strong>
+</div>
+        <ul class="nav-links">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#services">Hizmetler</a></li>
+            <li><a href="#about">Hakkımızda</a></li>
+            <li><a href="#contact">İletişim</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Ankara'nın En İyi Reklam Ajansı : Kare Reklam</h1>
+            <p>Araç giydirme, tabela, dijital baskı, folyo kaplama, cam filmi ve kurumsal reklam çözümlerinde kaliteli, hızlı ve profesyonel hizmet sunuyoruz.</p>
+            <a href="#contact" class="cta-button">Hemen Teklif Al</a>
+            <a href="https://wa.me/905444736972text=Merhaba!%20Web%20sitenizden%20ulasiyorum.%20Fiyat%20teklifi%20almak%20istiyorum." 
+               class="whatsapp-hero" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-car"></i></div>
+                <h3>Araç Giydirme</h3>
+                <p>Markanızı yollarda gezdirecek profesyonel araç kaplama hizmetleri</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-sign"></i></div>
+                <h3>Tabela & Folyo</h3>
+                <p>Led tabela, ışıklı tabela, vinil folyo baskı çözümleri</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-print"></i></div>
+                <h3>Dijital Baskı</h3>
+                <p>Branda, afiş, one vision, mesh baskı hizmetleri</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cut"></i></div>
+                <h3>Lazer Kesim</h3>
+                <p>Plexi, ahşap, metal lazer kesim ve şekillendirme</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Cam Filmi</h3>
+                <p>One way vision, dekoratif cam filmleri</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h3>Totem</h3>
+                <p>Yönlendirme totemleri ve dış mekan reklamları</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>20+ Yıllık Deneyim</h2>
+                <p>Ankara'da reklam sektöründe 20 yılı aşkın süredir faaliyet gösteriyoruz. Müşteri memnuniyetini ön planda tutarak, kaliteli malzeme ve profesyonel ekip ile hizmet veriyoruz.</p>
+                <p><strong>Çalışma Saatleri:</strong> Hafta içi - Hafta sonu 08:30-19:00 </p>
+                <p><strong>Servis Bölgesi:</strong> Ankara içerisi</p>
+            </div>
+            <div style="text-align: center;">
+                <i class="fas fa-award" style="font-size: 8rem; color: #ffd700;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2 class="section-title" style="color: white;">Bize Ulaşın</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Adres:</strong><br>
+                        Hüseyin Gazi Caddesi, Dostlar Mahallesi: 117 Ankara/Mamak
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Telefon:</strong><br>
+                        0544 473 69 27
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>E-posta:</strong><br>
+                        sametbolat@karereklamankara.com
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Çalışma:</strong><br>
+                        Pazartesi - Pazar    08:30-19:00
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/905444736972?text=Merhaba!%20Web%20sitenizden%20ulaşıyorum.%20%0AFiyat%20teklifi%20almak%20istiyorum." 
+               class="whatsapp-contact" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hemen WhatsApp'tan Teklif Al
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kare Reklam Ankara. Tüm hakları saklıdır. | <a href="#" style="color: #ffd700;">Gizlilik Politikası</a></p>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/905444736972?text=Merhaba%20Kare%20Reklam!%20Web%20sitenizden%20ulasiyorum.%0A%0AHangi%20hizmet%20icin%20teklif%20almak%20istiyorum?" 
+       class="whatsapp-float" target="_blank" title="WhatsApp ile iletişime geç">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+           
